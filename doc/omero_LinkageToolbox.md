@@ -91,7 +91,7 @@ Choose which metadata to include in the linkage.
 Don´t forget to paste or drag and drop the ELN url!
 Finally "Run script".
 
-  <img src="./images/Screenshot 2024-12-03 182723.png" alt="ELN_writter script GUI" style="width:50%; height:auto;">
+  <img src="/blob/main/doc/images/Screenshot 2024-12-03 182723.png" alt="ELN_writter script GUI" style="width:50%; height:auto;">
 
 
 **If your ELN is openBIS:**
