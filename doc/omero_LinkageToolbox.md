@@ -82,7 +82,7 @@ The **omero_LinkageToolbox** allows you to combine your OMERO instance with any 
 1. Click on /select the dataset or images you want to link with the **omero_LinkageToolbox**.
 2. Click on OMEROs script button and choose the script **ELN_writer**.
 
-  <img src="images/Screenshot 2024-12-04 102417.png" alt="OMERO.web" style="width:70%; height:auto;">
+  <img src="./images/Screenshot 2024-12-04 102417.png" alt="OMERO.web" style="width:70%; height:auto;">
 
 3. The **ELN_writer** will open in a new window.
 If pre-chosen, the dataset or image IDs and their data type are already written to the "IDs" and "Data Type" field. Otherwise type in all IDs you want to link and select the corresponding data type.
@@ -91,18 +91,18 @@ Choose which metadata to include in the linkage.
 Don´t forget to paste or drag and drop the ELN url!
 Finally "Run script".
 
-  <img src="images/Screenshot 2024-12-03 182723.png" alt="ELN_writter script GUI" style="width:50%; height:auto;">
+  <img src="./images/Screenshot 2024-12-03 182723.png" alt="ELN_writter script GUI" style="width:50%; height:auto;">
 
 
 **If your ELN is openBIS:**
 
 An entry with the name „OMERO data“ will be created and linked to your pasted /drag&drop object.
 
-<img src="images/Screenshot 2024-12-04 125501.png" alt="openBIS Collection listing" style="width:50%; height:auto;">
+<img src="./images/Screenshot 2024-12-04 125501.png" alt="openBIS Collection listing" style="width:50%; height:auto;">
 
 Results in preview mode:
 
-<img src="images/Screenshot 2024-12-04 140037.png" alt="openBIS Entry preview" style="width:50%; height:auto;">
+<img src="./images/Screenshot 2024-12-04 140037.png" alt="openBIS Entry preview" style="width:50%; height:auto;">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
