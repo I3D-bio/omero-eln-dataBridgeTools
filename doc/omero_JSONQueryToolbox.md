@@ -123,14 +123,14 @@ The table with the metadata shows up after filling both OMERO property types and
 #### Input
 Put all OMERO IDs you want to retrieve metadata from in the field "OMERO IDs" and select the data type corresponding to the given IDs:
 
-![Screenshot 2024-12-04 140409](./images/Screenshot 2024-12-04 140409.png)
+![Screenshot 2024-12-04 140409](images/Screenshot 2024-12-04 140409.png)
 
 Then "Save".
 
 #### Result
 The table with the linked metadata will automatically appear below. You might need to reload the page.
 
-![Screenshot 2024-12-04 140334](./images/Screenshot 2024-12-04 140334.png)
+![Screenshot 2024-12-04 140334](images/Screenshot 2024-12-04 140334.png)
 
 Note:
 This table gets updated every time you edit the openBIS object. You can add or remove IDs at any time.
