@@ -1,0 +1,84 @@
+{
+    "@context": "https://w3id.org/ro/crate/1.1/context",
+    "@graph": [
+        {
+            "@id": "./",
+            "@type": "Dataset",
+            "additionalType": "",
+            "author": {
+                "@id": "#julia"
+            },
+            "creator": {
+                "@id": "#julia"
+            },
+            "dateCreated": "2024-11-06T11:56:44+00:00 ",
+            "dateModified": "2024-11-06T11:56:44+00:00 ",
+            "datePublished": "2024-11-06T11:56:44+00:00",
+            "hasPart": {
+                "@id": "https://my.omero.de/"
+            },
+            "identifier": "20250924123947451-776288",
+            "name": "parent dataset"
+        },
+        {
+            "@id": "ro-crate-metadata.json",
+            "@type": "CreativeWork",
+            "about": {
+                "@id": "./"
+            },
+            "conformsTo": {
+                "@id": "https://w3id.org/ro/crate/1.1"
+            }
+        },
+        {
+            "@id": "#julia",
+            "@type": "Person",
+            "alternateName": "julia",
+            "familyName": "julia",
+            "givenName": "Julia"
+        },
+        {
+            "@id": "#OMERO",
+            "@type": "SoftwareApplication",
+            "installUrl": {
+                "@id": "https://my.omero.de"
+            },
+            "name": "OMERO Web Server",
+            "softwareVersion": "0.1.0"
+        },
+        {
+            "@id": "https://my.omero.de/",
+            "@type": "Dataset",
+            "additionalType": "ENTRY",
+            "author": {
+                "@id": "#julia"
+            },
+            "creator": {
+                "@id": "#julia"
+            },
+            "dateCreated": "2024-11-06T11:56:44+00:00",
+            "dateModified": "2024-11-06T11:56:44+00:00",
+            "identifier": "",
+            "name": "OMERO data",
+            "text": "<h2>OMERO data</h2><figure class='table' style='width:1000px;'><table border='1'><thead><tr><th>Name</th><th>ID</th><th>Username</th><th>Description</th><th>SizeX</th><th>SizeY</th><th>Pixel Type</th><th>SizeZ</th><th>SizeC</th><th>SizeT</th><th>Tags</th><th>Key-Value Pairs</th><th>Attachment</th><th>Comments</th><th>Rating</th></tr></thead><tbody><tr><td><a href=https://omero-dev.cellnanos.uni-osnabrueck.de/webclient/?show=image-338>Beispiel WT Replication.czi</a></td><td>338</td><td>julia-dev</td><td>none sorry\n</td><td>512</td><td>512</td><td>uint16</td><td>31</td><td>3</td><td>11</td><td>tagtag,tagtagtag,</td><td>keeyy:valuuee;</td><td>['Unbenannt.PNG', 'Batch_Image_Export.zip']</td><td>[]</td><td>['4/5']</td></tr><tr><td><a href=https://omero-dev.cellnanos.uni-osnabrueck.de/webclient/?show=image-339>Sim_D_imm_0,01_0,1_1_10nm_loc_prec_600nm_emWvlnth_107_px_32_ms.tif</a></td><td>339</td><td>julia-dev</td><td>also none</td><td>424</td><td>108</td><td>uint16</td><td>250</td><td>1</td><td>1</td><td>tagtagtag,</td><td>sim:loc prec;</td><td>[]</td><td>[]</td><td>['3/5']</td></tr></tbody></table></figure>"
+        },
+        {
+            "@id": "#ro-crate_created",
+            "@type": "CreateAction",
+            "identifier": "#ro-crate_created",
+            "name": "RO-Crate created",
+            "description": "provenance of entity",
+            "object": {
+                "@id": "./"
+            },
+            "endTime": "2024-11-06T11:56:44+00:00",
+            "instrument": {
+                "@id": "#OMERO",
+                "description": "Software that was used to produce this file"
+            },
+            "actionStatus": {
+                "@id": "http://schema.org/CompletedActionStatus"
+            }
+        }
+    ]
+}

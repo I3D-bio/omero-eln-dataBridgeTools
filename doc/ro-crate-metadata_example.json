@@ -1,0 +1,77 @@
+{
+    "@context": "https://w3id.org/ro/crate/1.1/context",
+    "@graph": [
+        {
+            "@id": "ro-crate-metadata.json",
+            "@type": "CreativeWork",
+            "about": {
+                "@id": "./"
+            },
+            "conformsTo": {
+                "@id": "https://w3id.org/ro/crate/1.1"
+            }
+        },
+        {
+            "@id": "#ro-crate_created",
+            "@type": "CreateAction",
+            "description": "provenance of entitie",
+            "object": {
+                "@id": "./"
+            },
+            "name": "RO-Crate created",
+            "endTime": "2024-06-19T12:04:50+02:00",
+            "instrument": 
+                {
+                    "@id": "#OMERO",
+                    "description": "Software that was used to produced this file"
+                },
+            "actionStatus": {
+                "@id": "http://schema.org/CompletedActionStatus"
+            }
+        },
+        {
+            "@id": "./",
+            "@type": "Dataset",
+            "additionalType": "Experiment",
+            "creator": [{
+                "@id": "#001"
+            }],
+            "dateCreated": "2024-06-13T13:03:52+00:00",
+            "dateModified": "2024-06-13T13:03:52+00:00",
+            "hasPart": {
+                "@id": "https://omero.de/"
+            },
+            "identifier": "20230922185023580-186589",
+            "name": "parent dataset"
+        },
+        {
+            "@id": "#001",
+            "@type": "Person",
+            "familyName": "Mayer",
+            "givenName": "Max",
+            "alternateName": "mmayer"
+        },
+        {
+            "@id": "#OMERO",
+            "@type": "SoftwareApplication",
+            "name": "OMERO Web Server OS",
+            "installUrl": {
+                "@id": "https://omero.instance.de"
+            },
+            "softwareVersion": "0.1.0"
+        },
+        {
+            "@id": "https://omero.de/",
+            "@type": "Dataset",
+            "additionalType": "ENTRY",
+            "creator": {
+                "@id": "#001"
+            },
+            "dateCreated": "2024-06-13T13:03:52+00:00",
+            "dateModified": "2024-06-13T13:03:52+00:00",
+            "identifier": "",
+            "name": "Linked data OMERO 2024-06-13T13:03:52+00:00",
+            "text": "<figure class='table'><table border='1'><thead><tr><th>Name</th><th>ID</th><th>Username</th><th>Description</th><th>SizeX</th><th>SizeY</th><th>Pixel Type</th><th>SizeZ</th><th>SizeC</th><th>SizeT</th><th>Tags</th><th>Key-Value Pairs</th><th>Attachment</th><th>Comments</th><th>Rating</th></tr></thead><tbody><tr><td>5frames.tif</td><td>355</td><td>mmayer</td><td>Image description. </td><td>512</td><td>512</td><td>uint16</td><td>1</td><td>1</td><td>5</td><td>'control'</td><td>'Imaging Method': 'single molecule imaging', 'Organism': 'HeLa'</td><td></td><td>'url.de'</td><td>'5/5'</td></tr></tbody></table></figure>"
+        }
+    ]
+}
