@@ -1,4 +1,4 @@
-ame: documentation
+name: documentation
 
 on: [push, pull_request, workflow_dispatch]
 
