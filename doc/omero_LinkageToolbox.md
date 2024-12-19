@@ -98,7 +98,7 @@ Finally "Run script".
 
 An entry with the name „OMERO data“ will be created and linked to your pasted /drag&drop object.
 
-<img src="./images/Screenshot 2024-12-04 125501.png" alt="openBIS Collection listing" style="width:50%; height:auto;">
+<img src="/images/Screenshot 2024-12-04 125501.png" alt="openBIS Collection listing" style="width:50%; height:auto;">
 
 Results in preview mode:
 
