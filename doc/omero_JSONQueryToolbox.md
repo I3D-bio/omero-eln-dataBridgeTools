@@ -1,7 +1,7 @@
 <a id="readme-top"></a>
 
 <!-- GETTING STARTED -->
-#  Integrating OMERO data
+#  omero_JSONQueryToolbox: Integrating OMERO data
 Integrate links and metadata for images deposited in OMERO in your ELN by using the JSON API of OMERO.
 This guide will walk you through setting up the **omero_JSONQueryToolbox** at your institution, including all necessary scripts and step-by-step instructions.
 
