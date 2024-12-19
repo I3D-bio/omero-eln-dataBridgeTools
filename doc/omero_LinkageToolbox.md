@@ -1,6 +1,6 @@
 <a id="readme-top"></a>
 <!-- GETTING STARTED -->
-# Linking with OMERO via drag and drop
+# omero_LinkageToolbox: Linking with OMERO via drag and drop
 
 To link your ELN object with OMERO, simply drag and drop or paste the URL of your ELN object onto the selected elements in OMERO (such as Datasets or Images). This action prompts OMERO to send a [*.eln](schema.md) file containing the metadata of all associated images to your ELN, creating a new ELN entry linked to your chosen ELN object.
 
