@@ -81,7 +81,7 @@ The **omero_LinkageToolbox** allows you to combine your OMERO instance with any 
 
 1. Click on /select the dataset or images you want to link with the **omero_LinkageToolbox**.
 2. Click on OMEROs script button and choose the script **ELN_writer**.
-<img src="./omero_web.png" alt="OMERO.web" style="width:70%; height:auto;">
+
 ![OMERO.web screenshot](./omero_web.png)
 
 3. The **ELN_writer** will open in a new window.
