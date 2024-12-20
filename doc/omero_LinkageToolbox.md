@@ -83,6 +83,7 @@ The **omero_LinkageToolbox** allows you to combine your OMERO instance with any 
 2. Click on OMEROs script button and choose the script **ELN_writer**.
 
   <img src="https://github.com/I3D-bio/omero-eln-dataBridgeTools/blob/main/doc/images/omero_web.png" alt="OMERO.web" style="width:70%; height:auto;">
+![image test](https://github.com/I3D-bio/omero-eln-dataBridgeTools/blob/main/doc/images/omero_web.png)
 
 3. The **ELN_writer** will open in a new window.
 If pre-chosen, the dataset or image IDs and their data type are already written to the "IDs" and "Data Type" field. Otherwise type in all IDs you want to link and select the corresponding data type.
