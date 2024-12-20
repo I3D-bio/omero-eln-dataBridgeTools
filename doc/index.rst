@@ -12,4 +12,4 @@ Welcome to the OMERO-ELN DataBridgeTools documentation!
 
    intro.md
    omero_JSONQueryToolbox.md
-   .. mdinclude:: omero_LinkageToolbox.md
+   omero_LinkageToolbox.md
