@@ -2,8 +2,8 @@ import base64
 import re
 from collections import OrderedDict
 import json
-import commands
 import sys
+import subprocess
 
 ##############################################################################
 #ADAPT TO YOUR SYSTEM:
@@ -155,12 +155,14 @@ def calculate():
         # get openBIS input values
         ids, idtype, owner, permID = openBIS_info()
         # call transition layer with arguments
-        cmd = "python3 %s" % PATH + " -f %s " % OUTPUT_FORMAT + " -o " + owner + " -n " + permID + " -d " + idtype + " -i " + str(ids)
-        status, metadata_dict = commands.getstatusoutput(cmd)
+        cmd = ["python3", PATH, "-f", "OUTPUT_FORMAT", "-o", owner, "-n", permID, "-d", idtype, "-i", str(ids)]
+        omero_call = subprocess.Popen(cmd, shell=False, universal_newlines=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        metadata_dict, stderr = omero_call.communicate()
+        #####
         # if an error occurs in omeroJSON_grabber.py return failure info to user
-        if metadata_dict.startswith("Error"):
+        if omero_call.returncode != 0:
             metadata_dict = {}
-            metadata_dict['Error']={'Error message': 'An error occured when openBIS requested metadata from OMERO. Please contact your administrator.'}
+            metadata_dict['Error']={'Error message': + stderr}
             metadata_dict = str(metadata_dict)
         # build openbis table from python dict
         new = '"'.join(metadata_dict.split("'"))
