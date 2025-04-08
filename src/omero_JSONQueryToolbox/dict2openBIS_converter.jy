@@ -2,57 +2,54 @@ import base64
 import re
 from collections import OrderedDict
 import json
-import sys
 import subprocess
 
 ##############################################################################
-#ADAPT TO YOUR SYSTEM:
-ID_PROPERTY = 'OMERO_IDS' # code of the openBIS property type 
-TYPE_PROPERTY = 'OMERO_ID_TYPE' # code of the openBIS property type 
-PATH = '/path/to/omeroJSON_grabber.py' # path to omeroJSON_grabber.py on your server
+# ADAPT TO YOUR SYSTEM:
+ID_PROPERTY = "OMERO_IDS"  # code of the openBIS property type
+TYPE_PROPERTY = "OMERO_ID_TYPE"  # code of the openBIS property type
+PATH = "/path/to/omeroJSON_grabber.py"  # path to omeroJSON_grabber.py on your server
 # OUTPUT_FORMAT can be "json", "md" or "html"
 OUTPUT_FORMAT = "json"
 ##############################################################################
 
+
 def json_load_byteified(file_handle):
-    return _byteify(
-        json.load(file_handle, object_hook=_byteify),
-        ignore_dicts=True
-    )
+    return _byteify(json.load(file_handle, object_hook=_byteify), ignore_dicts=True)
+
 
 def json_loads_byteified(json_text):
-    return _byteify(
-        json.loads(json_text, object_hook=_byteify),
-        ignore_dicts=True
-    )
+    return _byteify(json.loads(json_text, object_hook=_byteify), ignore_dicts=True)
 
-def _byteify(data, ignore_dicts = False):
+
+def _byteify(data, ignore_dicts=False):
     if isinstance(data, str):
         return data
 
     # If this is a list of values, return list of byteified values
     if isinstance(data, list):
-        return [ _byteify(item, ignore_dicts=True) for item in data ]
+        return [_byteify(item, ignore_dicts=True) for item in data]
     # If this is a dictionary, return dictionary of byteified keys and values
     # but only if we haven't already byteified it
     if isinstance(data, dict) and not ignore_dicts:
         return {
             _byteify(key, ignore_dicts=True): _byteify(value, ignore_dicts=True)
-            for key, value in data.items() # changed to .items() for Python 2.7/3
+            for key, value in data.items()  # changed to .items() for Python 2.7/3
         }
 
     # Python 3 compatible duck-typing
     # If this is a Unicode string, return its string representation
     if str(type(data)) == "<type 'unicode'>":
-        return str(data.encode('utf-8'))
+        return str(data.encode("utf-8"))
 
     # If it's anything else, return it in its original form
     return data
-    
+
+
 def create_ordered_dict(metadata_dict):
     # new function to convert transition layer dict to spreadsheet compatible dict
     metadata_spread = OrderedDict()
-    
+
     # put headers
     keys = []
     for i in metadata_dict:
@@ -60,38 +57,39 @@ def create_ordered_dict(metadata_dict):
     head = []
     for j in keys:
         head.append(j)
-    metadata_spread['headers'] = head
+    metadata_spread["headers"] = head
     # put data
     vals = []
     valus = []
     for k in metadata_dict:
         vals = metadata_dict[k].values()
         valus.append(vals)
-    metadata_spread['data'] = valus
-    
+    metadata_spread["data"] = valus
+
     return metadata_spread
-    
+
+
 class Spreadsheet:
     def __init__(self, data, cmd):
-        #self.data = to_dict(data)
+        # self.data = to_dict(data)
         self.data = create_ordered_dict(data)
-        #self.data['data'][1][1]=cmd
+        # self.data['data'][1][1]=cmd
 
     def get_pos(self, key):
         if len(key) != 2:
             raise ValueError("Key should be at most two elements long")
-        else:
-            x = self.data['headers'].index(key[0])
-            y = int(key[1]) - 1
+        x = self.data["headers"].index(key[0])
+        y = int(key[1]) - 1
         return y, x
 
     def __getitem__(self, key):
         x, y = self.get_pos(key)
-        return self.data['data'][x][y]
+        return self.data["data"][x][y]
 
     def __setitem__(self, key, value):
         x, y = self.get_pos(key)
-        self.data['data'][x][y] = value
+        self.data["data"][x][y] = value
+
 
 def extract(xml):
     """
@@ -102,43 +100,49 @@ def extract(xml):
     value = res.groups(0)
     return value[0]
 
+
 def decode_b64(uu_data):
     """
     Return the spreadsheet as JSON string
     """
     return base64.b64decode(uu_data)
 
+
 def to_dict(prop):
-    data = json.loads(decode_b64(prop),object_pairs_hook=OrderedDict)
+    data = json.loads(decode_b64(prop), object_pairs_hook=OrderedDict)
     return data
+
 
 def from_dict(data):
     encoded = base64.b64encode((json.dumps(data)))
     return "<DATA>{0}</DATA>".format(encoded)
 
+
 #################################################################################################
+
 
 def ids_from_url(idinput):
     r = re.findall("[0-9]+", idinput)
     idstr = ",".join(str(i) for i in r)
     return idstr
 
+
 def openBIS_info():
     # openBIS_info() returns ids & id type from property types as well as the openBIS user
     # get ids from property type OMERO_CONN_UINPUT
-    idinput = ""    
-    if entity.propertyValue(ID_PROPERTY) != ' ':
+    idinput = ""
+    if entity.propertyValue(ID_PROPERTY) != " ":
         idinput = str(entity.propertyValue(ID_PROPERTY))
         # test whether input is url or comma separated ids
         if re.search("^https", idinput):
             idStr = ids_from_url(idinput)
             # remove all other whitespaces and commata
-            ids = ' '.join(idStr.split(',')).strip().split(' ')
+            ids = " ".join(idStr.split(",")).strip().split(" ")
         # input is not url: remove all other whitespaces and commata
         else:
-            ids = ' '.join(idinput.split(',')).strip(' ').split(' ')
+            ids = " ".join(idinput.split(",")).strip(" ").split(" ")
     else:
-        return [], 'none', 'none'
+        return [], "none", "none", "none"
     # get ID type which the user selected (IMAGES or DATASET) from property type OMERO_CONN_TYPE
     idtype = str(entity.propertyValue(TYPE_PROPERTY))
     # get openBIS User calling the Script
@@ -148,27 +152,48 @@ def openBIS_info():
     # return ids, id type and owner
     return ids, idtype, owner, permID
 
+
 def calculate():
     # calls the transition layer, returns OMERO metadata dict
     # check if there are input values:
-    if entity.propertyValue(TYPE_PROPERTY) is not None and entity.propertyValue(ID_PROPERTY) is not None:
+    if (
+        entity.propertyValue(TYPE_PROPERTY) is not None
+        and entity.propertyValue(ID_PROPERTY) is not None
+    ):
         # get openBIS input values
         ids, idtype, owner, permID = openBIS_info()
         # call transition layer with arguments
-        cmd = ["python3", PATH, "-f", "OUTPUT_FORMAT", "-o", owner, "-n", permID, "-d", idtype, "-i"] + ids
-        omero_call = subprocess.Popen(cmd, shell=False, universal_newlines=True,
-			stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        cmd = [
+            "python3",
+            PATH,
+            "-f",
+            "OUTPUT_FORMAT",
+            "-o",
+            owner,
+            "-n",
+            permID,
+            "-d",
+            idtype,
+            "-i",
+        ] + ids
+        omero_call = subprocess.Popen(
+            cmd,
+            shell=False,
+            universal_newlines=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+        )
         metadata_dict, stderr = omero_call.communicate()
         #####
         # if an error occurs in omeroJSON_grabber.py return failure info to user
         if omero_call.returncode != 0:
             metadata_dict = {}
-            metadata_dict['Error']={'Error message': + stderr}
+            metadata_dict["Error"] = {"Error message": stderr}
             metadata_dict = str(metadata_dict)
         # build openbis table from python dict
         new = '"'.join(metadata_dict.split("'"))
-        cmd_str = ' '.join(cmd)
+        cmd_str = " ".join(cmd)
         sp = Spreadsheet(json.loads(new, object_pairs_hook=OrderedDict), cmd_str)
         metadata_spreads = from_dict(sp.data)
-        
+
     return metadata_spreads
