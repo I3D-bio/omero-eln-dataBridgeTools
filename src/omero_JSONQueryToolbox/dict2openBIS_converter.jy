@@ -132,11 +132,11 @@ def openBIS_info():
         # test whether input is url or comma separated ids
         if re.search("^https", idinput):
             idStr = ids_from_url(idinput)
-            # separate IDs with a single whitespace, remove all other whitespaces and commata
-            ids = ' '.join(idStr.split(',')).strip()
-        # input is not url: separate IDs with a single whitespace, remove all other whitespaces and commata
+            # remove all other whitespaces and commata
+            ids = ' '.join(idStr.split(',')).strip().split(' ')
+        # input is not url: remove all other whitespaces and commata
         else:
-            ids = ' '.join(idinput.split(',')).strip()
+            ids = ' '.join(idinput.split(',')).strip(' ').split(' ')
     else:
         return [], 'none', 'none'
     # get ID type which the user selected (IMAGES or DATASET) from property type OMERO_CONN_TYPE
@@ -155,8 +155,9 @@ def calculate():
         # get openBIS input values
         ids, idtype, owner, permID = openBIS_info()
         # call transition layer with arguments
-        cmd = ["python3", PATH, "-f", "OUTPUT_FORMAT", "-o", owner, "-n", permID, "-d", idtype, "-i", str(ids)]
-        omero_call = subprocess.Popen(cmd, shell=False, universal_newlines=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        cmd = ["python3", PATH, "-f", "OUTPUT_FORMAT", "-o", owner, "-n", permID, "-d", idtype, "-i"] + ids
+        omero_call = subprocess.Popen(cmd, shell=False, universal_newlines=True,
+			stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         metadata_dict, stderr = omero_call.communicate()
         #####
         # if an error occurs in omeroJSON_grabber.py return failure info to user
@@ -166,7 +167,8 @@ def calculate():
             metadata_dict = str(metadata_dict)
         # build openbis table from python dict
         new = '"'.join(metadata_dict.split("'"))
-        sp = Spreadsheet(json.loads(new, object_pairs_hook=OrderedDict),cmd)
+        cmd_str = ' '.join(cmd)
+        sp = Spreadsheet(json.loads(new, object_pairs_hook=OrderedDict), cmd_str)
         metadata_spreads = from_dict(sp.data)
         
     return metadata_spreads
