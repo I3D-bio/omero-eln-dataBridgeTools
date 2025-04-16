@@ -188,7 +188,7 @@ def calculate():
         # if an error occurs in omeroJSON_grabber.py return failure info to user
         if omero_call.returncode != 0:
             metadata_dict = {}
-            metadata_dict["Error"] = {"Error message": stderr}
+            metadata_dict["Error"] = {"Error message: An error occured when openBIS requested metadata from OMERO. Please contact your administrator."}
             metadata_dict = str(metadata_dict)
         # build openbis table from python dict
         new = '"'.join(metadata_dict.split("'"))
