@@ -1,0 +1,154 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Properties &mdash; Example 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Example
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">About The Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#roadmap-future-developments">Roadmap future developments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#versioning">Versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#contributing">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#contact">Contact</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#acknowledgments">Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="omero_JSONQueryToolbox.html">omero_JSONQueryToolbox: Integrating OMERO data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="omero_LinkageToolbox.html">omero_LinkageToolbox: Linking with OMERO via drag and drop</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Example</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Properties</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/schema.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>The required dropbox format is a *.eln format which is basically a zipped RO-Crate with a .eln file extension.
+For the ro-crate-metadata.json file, follows the RO-Crate 1.1+ Specification, the following structure is expected:</p>
+<section id="properties">
+<h1>Properties<a class="headerlink" href="#properties" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://schema.org/dataset"><code class="docutils literal notranslate"><span class="pre">Dataset</span></code></a></p>
+<ul>
+<li><p><a class="reference external" href="https://schema.org/identifier"><code class="docutils literal notranslate"><span class="pre">identifier</span></code></a>: <a class="reference external" href="https://schema.org/Text"><code class="docutils literal notranslate"><span class="pre">Text</span></code></a> or <a class="reference external" href="https://schema.org/URL"><code class="docutils literal notranslate"><span class="pre">URL</span></code></a> (required) <em>on the root element level the PERMID of the object in openBIS, which is linked to the OMERO data</em></p></li>
+<li><p><a class="reference external" href="https://schema.org/additionalType"><code class="docutils literal notranslate"><span class="pre">additionalType</span></code></a>: <a class="reference external" href="https://schema.org/Text"><code class="docutils literal notranslate"><span class="pre">Text</span></code></a> (required) <em>openBIS object type</em></p></li>
+<li><p><a class="reference external" href="https://schema.org/description"><code class="docutils literal notranslate"><span class="pre">description</span></code></a>: <a class="reference external" href="https://schema.org/Text"><code class="docutils literal notranslate"><span class="pre">Text</span></code></a> (optional)</p></li>
+<li><p><a class="reference external" href="https://schema.org/author"><code class="docutils literal notranslate"><span class="pre">author</span></code></a>: <a class="reference external" href="https://schema.org/Text"><code class="docutils literal notranslate"><span class="pre">Person</span></code></a> (optional)</p></li>
+<li><p><a class="reference external" href="https://schema.org/creator"><code class="docutils literal notranslate"><span class="pre">creator</span></code></a>: <a class="reference external" href="https://schema.org/Person"><code class="docutils literal notranslate"><span class="pre">Person</span></code></a> (required) <em>user in OMERO and openBIS that links the sources together</em></p></li>
+<li><p><a class="reference external" href="https://schema.org/dateCreated"><code class="docutils literal notranslate"><span class="pre">dateCreated</span></code></a>: <a class="reference external" href="https://schema.org/Date"><code class="docutils literal notranslate"><span class="pre">Date</span></code></a> or <a class="reference external" href="https://schema.org/DateTime"><code class="docutils literal notranslate"><span class="pre">DateTime</span></code></a> (required) <em>creation data of the linkage</em></p></li>
+<li><p><a class="reference external" href="https://schema.org/dateModified"><code class="docutils literal notranslate"><span class="pre">dateModified</span></code></a>: <a class="reference external" href="https://schema.org/Date"><code class="docutils literal notranslate"><span class="pre">Date</span></code></a> or <a class="reference external" href="https://schema.org/DateTime"><code class="docutils literal notranslate"><span class="pre">DateTime</span></code></a> (required)</p></li>
+<li><p><a class="reference external" href="https://schema.org/name"><code class="docutils literal notranslate"><span class="pre">name</span></code></a>: <a class="reference external" href="https://schema.org/Text"><code class="docutils literal notranslate"><span class="pre">Text</span></code></a> (required) <em>on the linked dataset level the name for the ENTRY object in openBIS that will be created</em></p></li>
+<li><p><a class="reference external" href="https://schema.org/text"><code class="docutils literal notranslate"><span class="pre">text</span></code></a>: <a class="reference external" href="https://schema.org/Text"><code class="docutils literal notranslate"><span class="pre">Text</span></code></a> (optional)</p></li>
+<li><p><a class="reference external" href="https://schema.org/hasPart"><code class="docutils literal notranslate"><span class="pre">hasPart</span></code></a>: <a class="reference external" href="https://schema.org/dataset"><code class="docutils literal notranslate"><span class="pre">Dataset</span></code></a> (optional) <em>data from OMERO</em></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="http://schema.org/Person"><code class="docutils literal notranslate"><span class="pre">Person</span></code></a></p>
+<ul>
+<li><p><a class="reference external" href="https://schema.org/givenName"><code class="docutils literal notranslate"><span class="pre">givenName</span></code></a>: <a class="reference external" href="https://schema.org/Text"><code class="docutils literal notranslate"><span class="pre">Text</span></code></a> (required)</p></li>
+<li><p><a class="reference external" href="http://schema.org/familyName"><code class="docutils literal notranslate"><span class="pre">familyName</span></code></a>: <a class="reference external" href="https://schema.org/Text"><code class="docutils literal notranslate"><span class="pre">Text</span></code></a> (required)</p></li>
+<li><p><a class="reference external" href="https://schema.org/alternateName"><code class="docutils literal notranslate"><span class="pre">alternateName</span></code></a>: <a class="reference external" href="https://schema.org/Text"><code class="docutils literal notranslate"><span class="pre">Text</span></code></a> (required)  <em>userID in openBIS</em></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://schema.org/ScholarlyArticle"><code class="docutils literal notranslate"><span class="pre">SoftwareApplication</span></code></a></p>
+<ul>
+<li><p><a class="reference external" href="https://schema.org/installUrl"><code class="docutils literal notranslate"><span class="pre">installUrl</span></code></a>: <a class="reference external" href="https://schema.org/URL"><code class="docutils literal notranslate"><span class="pre">URL</span></code></a> (optional)</p></li>
+<li><p><a class="reference external" href="https://schema.org/name"><code class="docutils literal notranslate"><span class="pre">name</span></code></a>: <a class="reference external" href="https://schema.org/Text"><code class="docutils literal notranslate"><span class="pre">Text</span></code></a> (required)</p></li>
+<li><p><a class="reference external" href="https://schema.org/softwareVersion"><code class="docutils literal notranslate"><span class="pre">softwareVersion</span></code></a>: <a class="reference external" href="https://schema.org/Text"><code class="docutils literal notranslate"><span class="pre">Text</span></code></a> (optional)</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://schema.org/CreateAction"><code class="docutils literal notranslate"><span class="pre">CreateAction</span></code></a> , see also <a class="reference external" href="https://www.researchobject.org/ro-crate/specification/1.1/provenance.html">Provenance ro-crate</a></p>
+<ul>
+<li><p><a class="reference external" href="https://schema.org/object"><code class="docutils literal notranslate"><span class="pre">object</span></code></a>(required)</p></li>
+<li><p><a class="reference external" href="https://schema.org/name"><code class="docutils literal notranslate"><span class="pre">name</span></code></a>(optional)</p></li>
+<li><p><a class="reference external" href="https://schema.org/instrument"><code class="docutils literal notranslate"><span class="pre">instrument</span></code></a>(required)</p></li>
+<li><p><a class="reference external" href="https://schema.org/actionStatus"><code class="docutils literal notranslate"><span class="pre">actionStatus</span></code></a>(optional)</p></li>
+<li><p><a class="reference external" href="https://schema.org/endTime"><code class="docutils literal notranslate"><span class="pre">endTime</span></code></a>(optional)</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Example:</strong> <a class="reference download internal" download="" href="_downloads/7e40b1e8136dc98f09601f1c97f24129/ro-crate-metadata_example.json"><span class="xref download myst">ro-crate-metadata.json</span></a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright workshop participant.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

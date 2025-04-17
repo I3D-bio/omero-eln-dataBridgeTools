@@ -1,0 +1,226 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>omero_LinkageToolbox: Linking with OMERO via drag and drop &mdash; Example 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="omero_JSONQueryToolbox: Integrating OMERO data" href="omero_JSONQueryToolbox.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Example
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">About The Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#roadmap-future-developments">Roadmap future developments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#versioning">Versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#contributing">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#contact">Contact</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#acknowledgments">Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="omero_JSONQueryToolbox.html">omero_JSONQueryToolbox: Integrating OMERO data</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">omero_LinkageToolbox: Linking with OMERO via drag and drop</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#supported-eln-platforms">Supported ELN platforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#steps-for-omero">Steps for OMERO:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#steps-for-openbis">Steps for openBIS:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Example</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">omero_LinkageToolbox: Linking with OMERO via drag and drop</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/omero_LinkageToolbox.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p><a id="readme-top"></a></p>
+<!-- GETTING STARTED -->
+<section id="omero-linkagetoolbox-linking-with-omero-via-drag-and-drop">
+<h1>omero_LinkageToolbox: Linking with OMERO via drag and drop<a class="headerlink" href="#omero-linkagetoolbox-linking-with-omero-via-drag-and-drop" title="Link to this heading"></a></h1>
+<p>To link your ELN object with OMERO, simply drag and drop or paste the URL of your ELN object onto the selected elements in OMERO (such as Datasets or Images). This action prompts OMERO to send a <a class="reference internal" href="schema.html"><span class="std std-doc">*.eln</span></a> file containing the metadata of all associated images to your ELN, creating a new ELN entry linked to your chosen ELN object.</p>
+<p>To incorporate data bridging into your infrastructure, please follow the steps outlined below.</p>
+<section id="supported-eln-platforms">
+<h2>Supported ELN platforms<a class="headerlink" href="#supported-eln-platforms" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>openBIS version &gt;=20.10.8</p></li>
+</ul>
+</section>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h2>
+<p>Check your Python installation on <strong>omero-server</strong>:</p>
+<ul>
+<li><p>Python version &gt;=3.9;</p></li>
+<li><p>make sure the following Python modules are installed on your <strong>omero-server</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">omero</span><span class="o">-</span><span class="n">py</span> <span class="p">(</span><span class="n">tested</span> <span class="k">with</span> <span class="n">v5</span><span class="mf">.19.5</span><span class="p">)</span>
+<span class="n">rocrate</span> <span class="p">(</span><span class="n">tested</span> <span class="k">with</span> <span class="n">v0</span><span class="mf">.11.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<p><strong>Definitions:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">$ELN_INSTANCE_DIR</span></code></strong> is the path on the e.g. eln-server where your eln is installed (e.g. <em><strong>/home/openbis/openbis/</strong></em>).</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">$ELN_SHARE</span></code></strong> is the watch folder on your eln-server (e.g. <em><strong>/home/openbis/dataBridge_omero</strong></em>)</p></li>
+</ul>
+<p>The <strong>omero_LinkageToolbox</strong> allows you to combine your OMERO instance with any of the supported ELN platforms. Follow the steps for both OMERO and your chosen ELN platform</p>
+<section id="steps-for-omero">
+<h3>Steps for OMERO:<a class="headerlink" href="#steps-for-omero" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p>Mount ELN share <strong><code class="docutils literal notranslate"><span class="pre">$ELN_SHARE</span></code></strong> as <strong><code class="docutils literal notranslate"><span class="pre">$DROPBOX_MNT</span></code></strong></p></li>
+<li><p>Download the <strong><a class="reference download internal" download="" href="_downloads/efc33b4d6bc4bc00b31ac39535f231c6/ELN_writer.py"><span class="xref download myst">ELN_Writer.py</span></a></strong> script and edit its configuration section:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># the output path for building the .eln file </span>
+<span class="nv">OUTPUT_PATH</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/tmp&quot;</span>
+<span class="c1"># the ELN Share receiving the .eln files</span>
+<span class="nv">ELN_SHARE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>§DROPBOX_MNT
+<span class="c1"># the url of your ELN instance</span>
+<span class="nv">ELN_URI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://myELN.de&quot;</span>
+<span class="c1"># the url of your OMERO instance</span>
+<span class="nv">OMERO_URI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://omero.institute.de&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Upload the script <strong><code class="docutils literal notranslate"><span class="pre">ELN_Writer.py</span></code></strong> to your omero instance (see the “<a class="reference external" href="https://omero-guides.readthedocs.io/en/latest/scripts/docs/write_scripts.html">HowTo upload a server-side script in OMERO</a>” guide) in order to run it as a server-side script.</p></li>
+<li><p>On <strong><code class="docutils literal notranslate"><span class="pre">omero-server</span></code></strong> check if all Python modules listed in <a class="reference internal" href="#../src/omero_LinkageToolbox/requirements_omero.txt"><span class="xref myst">required modules</span></a> are installed</p></li>
+</ol>
+</section>
+<section id="steps-for-openbis">
+<h3>Steps for openBIS:<a class="headerlink" href="#steps-for-openbis" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p>To create a dropbox, navigate first to <strong><code class="docutils literal notranslate"><span class="pre">$ELN_INSTANCE_DIR/servers/core-plugins</span></code></strong> and create a directory structure for your dropbox (for example, creating the directory structure <em><strong>dataBridge/1/dss/drop-boxes/omero-dropbox</strong></em>)</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span><span class="nv">$ELN_INSTANCE_DIR</span>/servers/core-plugins/
+mkdir<span class="w"> </span>-p<span class="w"> </span>dataBridge/1/dss/drop-boxes/omero-dropbox
+</pre></div>
+</div>
+</li>
+<li><p>Copy <strong><a class="reference download internal" download="" href="_downloads/28368611c9a2a905a8736b5af03d9486/omero-receiver.py"><span class="xref download myst">omero-receiver.py</span></a></strong> to the <strong><code class="docutils literal notranslate"><span class="pre">omero-dropbox</span></code></strong> folder and specify <strong><code class="docutils literal notranslate"><span class="pre">EMAIL_FROM</span></code></strong> and <strong><code class="docutils literal notranslate"><span class="pre">EMAIL_TO</span></code></strong> to send a notification mail to the dropbox administrator if any issues arise during operation.</p></li>
+<li><p>In the <strong><code class="docutils literal notranslate"><span class="pre">omero-dropbox</span></code></strong> directory, create and configure the <strong><code class="docutils literal notranslate"><span class="pre">plugin.properties</span></code></strong> file (see <a class="reference download internal" download="" href="_downloads/e745d39519f6da04e72033bb73f6170e/plugin.properties"><span class="xref download myst">plugin.properties</span></a> for details)</p></li>
+<li><p>Add your core-plugin (e.g. <em><strong>dataBridge</strong></em>) to the list of <code class="docutils literal notranslate"><span class="pre">enabled-modules</span></code> in <strong><code class="docutils literal notranslate"><span class="pre">$ELN_INSTANCE_DIR/servers/core-plugins/core-plugins.properties</span></code></strong></p></li>
+<li><p>Don’t forget to create the watch folder <strong><code class="docutils literal notranslate"><span class="pre">$ELN_SHARE</span></code></strong> on your openBIS-server</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/home/openbis/
+mkdir<span class="w"> </span>dataBridge_omero
+</pre></div>
+</div>
+</li>
+<li><p>Configure <strong><code class="docutils literal notranslate"><span class="pre">$ELN_SHARE</span></code></strong> as SHARE and grant <strong>omero-server</strong> write access to that folder</p></li>
+<li><p>Restart DSS server</p>
+<p>After the restart the dropbox should be listed in the eln-lims GUI under <code class="docutils literal notranslate"><span class="pre">Dropbox</span> <span class="pre">Monitor</span></code>.</p>
+</li>
+</ol>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<!-- USAGE EXAMPLES -->
+</section>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Click on /select the dataset or images you want to link with the <strong>omero_LinkageToolbox</strong>.</p></li>
+<li><p>Click on OMEROs script button and choose the script <strong>ELN_writer</strong>.</p></li>
+</ol>
+<p><img alt="OMERO.web screenshot" src="_images/omero_web.png" /></p>
+<ol class="arabic simple" start="3">
+<li><p>The <strong>ELN_writer</strong> will open in a new window.
+If pre-chosen, the dataset or image IDs and their data type are already written to the “IDs” and “Data Type” field. Otherwise type in all IDs you want to link and select the corresponding data type.
+If you choose Dataset: Pay attention to the ELN link option, which defines if you want a link to the ELN experiment on all images in the dataset or solely on the dataset itself.
+Choose which metadata to include in the linkage.
+Don´t forget to paste or drag and drop the ELN url!
+Finally “Run script”.</p></li>
+</ol>
+<p><img alt="ELN_writer screenshot" src="_images/ELN_writer_scriptGUI.png" /></p>
+<p><strong>If your ELN is openBIS:</strong></p>
+<p>An entry with the name „OMERO data“ will be created and linked to your pasted /drag&amp;drop object.</p>
+<p><img alt="openBIS collection screenshot" src="_images/openBISCollection.png" /></p>
+<p>Results in preview mode:</p>
+<p><img alt="openBIS Entry prewiew screenshot" src="_images/openBISEntry.png" /></p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="omero_JSONQueryToolbox.html" class="btn btn-neutral float-left" title="omero_JSONQueryToolbox: Integrating OMERO data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright workshop participant.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

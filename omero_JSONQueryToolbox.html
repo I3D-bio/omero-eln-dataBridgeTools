@@ -1,0 +1,293 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>omero_JSONQueryToolbox: Integrating OMERO data &mdash; Example 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="omero_LinkageToolbox: Linking with OMERO via drag and drop" href="omero_LinkageToolbox.html" />
+    <link rel="prev" title="About The Project" href="intro.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Example
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">About The Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#roadmap-future-developments">Roadmap future developments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#versioning">Versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#contributing">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#contact">Contact</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#acknowledgments">Acknowledgments</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">omero_JSONQueryToolbox: Integrating OMERO data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#supported-eln-platforms">Supported ELN Platforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#definitions">Definitions:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#openbis-server-setup">openBIS Server Setup</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#openbis-web-client-admin-setup">openBIS Web Client Admin Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openbis-web-client-ng-admin-setup">openBIS Web Client NG-Admin Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setup-web-client">Setup Web Client</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#input">Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#result">Result</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="omero_LinkageToolbox.html">omero_LinkageToolbox: Linking with OMERO via drag and drop</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Example</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">omero_JSONQueryToolbox: Integrating OMERO data</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/omero_JSONQueryToolbox.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p><a id="readme-top"></a></p>
+<!-- GETTING STARTED -->
+<section id="omero-jsonquerytoolbox-integrating-omero-data">
+<h1>omero_JSONQueryToolbox: Integrating OMERO data<a class="headerlink" href="#omero-jsonquerytoolbox-integrating-omero-data" title="Link to this heading"></a></h1>
+<p>Integrate links and metadata for images deposited in OMERO in your ELN by using the JSON API of OMERO.
+This guide will walk you through setting up the <strong>omero_JSONQueryToolbox</strong> at your institution, including all necessary scripts and step-by-step instructions.</p>
+<section id="supported-eln-platforms">
+<h2>Supported ELN Platforms<a class="headerlink" href="#supported-eln-platforms" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>openBIS</strong> (version&gt;=20.10.0)</p></li>
+</ul>
+</section>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h2>
+<p>To successfully use the <strong>omero_JSONQueryToolbox</strong>, ensure that the following conditions are met:</p>
+<ol class="arabic">
+<li><p>You have a running OMERO instance.</p></li>
+<li><p>You have a compatible ELN instance (as listed above).</p></li>
+<li><p>You have an OMERO account with restricted admin privileges (read only).</p></li>
+<li><p>To run the script <strong><code class="docutils literal notranslate"><span class="pre">omeroJSON_grabber.py</span></code></strong> on the same system where your ELN server runs, make sure the following Python modules are installed on your Python environment for your system (which may be separate from the Python environment used to run the ELN):</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>requests<span class="w"> </span><span class="o">(</span>tested<span class="w"> </span>with<span class="w"> </span>v2.27.1<span class="o">)</span>
+markdown<span class="w"> </span><span class="o">(</span>tested<span class="w"> </span>with<span class="w"> </span>v3.3.7<span class="o">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<section id="definitions">
+<h3>Definitions:<a class="headerlink" href="#definitions" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">$PATH_SCRIPT</span></code></strong>: Directory on your ELN server where you want to store the <strong><code class="docutils literal notranslate"><span class="pre">omeroJSON_grabber.py</span></code></strong> script (e.g. <em><strong>/home/openbis/openbis/server_configurations/</strong></em>)</p></li>
+</ul>
+</section>
+<section id="openbis-server-setup">
+<h3>openBIS Server Setup<a class="headerlink" href="#openbis-server-setup" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p>Place <strong><a class="reference internal" href="#src/omero_JSONQueryToolbox/omeroJSON_grabber.py"><span class="xref myst">omeroJSON_grabber.py</span></a></strong> on your ELN Server in <strong><code class="docutils literal notranslate"><span class="pre">$PATH_SCRIPT</span></code></strong>.</p></li>
+<li><p>Edit <strong><code class="docutils literal notranslate"><span class="pre">omeroJSON_grabber.py</span></code></strong>:
+<br>Locate the “Configuration” section in the script and customize the following parameters to fit your local environment:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># Login information of OMERO Admin Account for data access </span>
+<span class="n">SUDO_USERNAME</span> <span class="o">=</span> <span class="c1"># Username</span>
+<span class="n">PASSWORD</span> <span class="o">=</span> <span class="c1"># Password</span>
+<span class="c1"># Your OMERO host address</span>
+<span class="n">OMERO_WEB_HOST</span> <span class="o">=</span> <span class="c1"># e.g. https://omero.myinstitution.de</span>
+<span class="c1"># omeroJSON_grabber can additionally save the requested data on the server.</span>
+<span class="n">SAVE_OUTPUT</span> <span class="o">=</span> <span class="c1"># choose &#39;True&#39; to save and &#39;False&#39; to skip</span>
+<span class="c1"># Files created by omeroJSON_grabber will be saved here:</span>
+<span class="n">OUTPUT_PATH</span> <span class="o">=</span> <span class="c1"># recommendation: /home/openbis/openbis/server_configurations/transitionlayer_data/</span>
+</pre></div>
+</div>
+</li>
+<li><p>Check File Access Rights:</p>
+<ul class="simple">
+<li><p>Ensure that <strong><code class="docutils literal notranslate"><span class="pre">omeroJSON_grabber.py</span></code></strong>  has the following permissions: <strong>‘-rwx—r–’</strong> to execute the Python script.</p></li>
+<li><p>Confirm that the output path chosen in <strong><code class="docutils literal notranslate"><span class="pre">omeroJSON_grabber.py</span></code></strong> has permissions set to <strong>‘drwx——’</strong> to allow file saving.</p></li>
+</ul>
+</li>
+</ol>
+<section id="openbis-web-client-admin-setup">
+<h4>openBIS Web Client Admin Setup<a class="headerlink" href="#openbis-web-client-admin-setup" title="Link to this heading"></a></h4>
+<ol class="arabic">
+<li><p>Create openBIS Property Types <strong><code class="docutils literal notranslate"><span class="pre">OMERO_IDS</span></code></strong>, <strong><code class="docutils literal notranslate"><span class="pre">OMERO_ID_TYPE</span></code></strong> and <strong><code class="docutils literal notranslate"><span class="pre">OMERO_METADATA</span></code></strong>:</p>
+<p><em>Note:</em> You can choose different codes names, but remember to update them in <strong><code class="docutils literal notranslate"><span class="pre">dict2openBIS_converter.jy</span></code></strong> accordingly.</p>
+<p>Use the following input values:</p>
+<ul>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">OMERO_IDS</span></code></strong>: property type for giving the OMERO IDS I want to retrieve metadata for</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">Code</span> <span class="o">=</span> <span class="n">OMERO_IDS</span>
+<span class="n">Description</span> <span class="o">=</span> <span class="c1"># e.g Comma separated OMERO IDs (eg.: 55, 56, 77)</span>
+<span class="n">Data</span> <span class="n">Type</span> <span class="o">=</span> <span class="n">VARCHAR</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">OMERO_ID_TYPE</span></code></strong>: property type for selecting the OMERO object type (Images or Datasets)</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">Code</span> <span class="o">=</span> <span class="n">OMERO_ID_TYPE</span>
+<span class="n">Description</span> <span class="o">=</span> <span class="c1"># e.g. Choose if you put OMERO Dataset IDs or OMERO Image IDs in OMERO_IDS</span>
+<span class="c1"># Select and create a controlled vocabulary which has the values “DATASET” and “IMAGES”</span>
+<span class="n">Data</span> <span class="n">Type</span> <span class="o">=</span> <span class="n">CONTROLLEDVOCABULARY</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">OMERO_METADATA</span></code></strong>: property type for displaying the gathered OMERO metadata table</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">Code</span> <span class="o">=</span> <span class="n">OMERO_METADATA</span>
+<span class="n">Data</span> <span class="n">Type</span> <span class="o">=</span> <span class="n">XML</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="openbis-web-client-ng-admin-setup">
+<h4>openBIS Web Client NG-Admin Setup<a class="headerlink" href="#openbis-web-client-ng-admin-setup" title="Link to this heading"></a></h4>
+<p>Create an openBIS Script to call <strong><code class="docutils literal notranslate"><span class="pre">omeroJSON_grabber.py</span></code></strong> by creating a dynamic property plugin:</p>
+<ul>
+<li><p>Login to the NG-Admin Web Client of your openBIS</p></li>
+<li><p>Navigate to “Tools”, Click on “Dynamic Property Plugins” and then click “Add”</p></li>
+<li><p>Use the following settings:</p>
+<ul class="simple">
+<li><p>Name: dict2openBIS_converter</p></li>
+<li><p>Entity Kind: Object</p></li>
+<li><p>Description: (Enter a description)</p></li>
+</ul>
+</li>
+<li><p>Copy the content from the provided <strong><a class="reference internal" href="#src/omero_JSONQueryToolbox/dict2openBIS_converter.jy"><span class="xref myst">dict2openBIS_converter.jy</span></a></strong> file into the script field</p></li>
+<li><p>Adapt the copied content to your local environment by modifying the following values under <em>ADAPT TO YOUR SYSTEM</em>:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">ID_PROPERTY</span> <span class="o">=</span> <span class="n">OMERO_IDS</span>
+<span class="n">TYPE_PROPERTY</span> <span class="o">=</span> <span class="n">OMERO_ID_TYPE</span>
+<span class="n">PATH</span> <span class="o">=</span> <span class="err">$</span><span class="n">PATH_SCRIPT</span><span class="o">/</span><span class="n">omeroJSON_grabber</span><span class="o">.</span><span class="n">py</span>
+<span class="c1"># choose one of the output format: &quot;json&quot;, &quot;md&quot;, or &quot;html&quot;</span>
+<span class="n">OUTPUT_FORMAT</span> <span class="o">=</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="setup-web-client">
+<h4>Setup Web Client<a class="headerlink" href="#setup-web-client" title="Link to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>To display a table in the ELN, the property type <strong><code class="docutils literal notranslate"><span class="pre">OMERO_METADATA</span></code></strong> has to become a Spreadsheet:</p>
+<ul class="simple">
+<li><p>Login as admin to your openBIS instance.</p></li>
+<li><p>Go to “General Settings”.</p></li>
+<li><p>Expand “Custom Widgets” and add <strong><code class="docutils literal notranslate"><span class="pre">OMERO_METADATA</span></code></strong> with “Spreadsheet”.</p></li>
+</ul>
+</li>
+<li><p>Assign the property types to an object type of your choice and connect them to the openBIS Script:</p>
+<ul class="simple">
+<li><p>Ensure all three property types (<strong><code class="docutils literal notranslate"><span class="pre">OMERO_IDS</span></code></strong>, <strong><code class="docutils literal notranslate"><span class="pre">OMERO_ID_TYPE</span></code></strong>, <strong><code class="docutils literal notranslate"><span class="pre">OMERO_METADATA</span></code></strong>) are added to the same object type</p></li>
+<li><p>When adding <strong><code class="docutils literal notranslate"><span class="pre">OMERO_METADATA</span></code></strong> select “handled by script” and choose <strong><code class="docutils literal notranslate"><span class="pre">dict2openBIS_converter.jy</span></code></strong></p></li>
+</ul>
+</li>
+</ol>
+<p>Everything is now set up and ready to use now.
+The table with the metadata shows up after filling both OMERO property types and saving the object. If the metadata table does not display immediately after saving, try reloading the object to view the metadata.</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<!-- USAGE EXAMPLES -->
+</section>
+</section>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h2>
+<section id="input">
+<h3>Input<a class="headerlink" href="#input" title="Link to this heading"></a></h3>
+<p>Put all OMERO IDs you want to retrieve metadata from in the field “OMERO IDs” and select the data type corresponding to the given IDs:</p>
+<p><img alt="openBIS input screenshot" src="_images/openBISExperimentInput.png" /></p>
+<p>Then “Save”.</p>
+</section>
+<section id="result">
+<h3>Result<a class="headerlink" href="#result" title="Link to this heading"></a></h3>
+<p>The table with the linked metadata will automatically appear below. You might need to reload the page.</p>
+<p><img alt="openBIS result screenshot" src="_images/openBISExperiment.png" /></p>
+<p>Note:
+This table gets updated every time you edit the openBIS object. You can add or remove IDs at any time.
+The registrator of the openBIS experiment and the OMERO image owner have to be the same to integrate the metadata table.</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="intro.html" class="btn btn-neutral float-left" title="About The Project" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="omero_LinkageToolbox.html" class="btn btn-neutral float-right" title="omero_LinkageToolbox: Linking with OMERO via drag and drop" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright workshop participant.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
