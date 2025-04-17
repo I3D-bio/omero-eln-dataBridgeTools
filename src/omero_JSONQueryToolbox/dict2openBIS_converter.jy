@@ -131,14 +131,18 @@ def openBIS_info():
         idinput = str(entity.propertyValue(ID_PROPERTY))
         # test whether input is url or comma separated ids
         if re.search("^https", idinput):
-            idStr = ids_from_url(idinput)
-            # remove all other whitespaces and commata
-            ids = ' '.join(idStr.split(',')).strip().split(' ')
-        # input is not url: remove all other whitespaces and commata
-        else:
-            ids = ' '.join(idinput.split(',')).strip(' ').split(' ')
+            idinput = ids_from_url(idinput)
+
+        elements = idinput.split(',')
+        checkedElements = []
+        for element in elements:
+            element = element.strip() #remove leading/trailing whitespaces
+            # check if given element string is a positiv number, ignore all other elements
+            if element.isdigit(): 
+                checkedElements.append(element)
+        ids = checkedElements
     else:
-        return [], 'none', 'none'
+        return [], 'none', 'none','none'
     # get ID type which the user selected (IMAGES or DATASET) from property type OMERO_CONN_TYPE
     idtype = str(entity.propertyValue(TYPE_PROPERTY))
     # get openBIS User calling the Script
