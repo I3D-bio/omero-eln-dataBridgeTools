@@ -36,11 +36,11 @@ Utilizing these tools allows you to save time on metadata searches, access your 
 
 We developed two different toolboxes to link and display metadata:
 
-### [omero_JSONQueryToolbox:](omero_JSONQueryToolbox.md)
+### [omero_JSONQueryToolbox:](/doc/omero_JSONQueryToolbox.md)
 This toolbox requires the user to insert the OMERO image or dataset ID into the ELN. The OMERO image metadata is then requested and displayed in the ELN. 
 This data is updated each time the ELN entry is edited. By adding or deleting OMERO image IDs these are appended to or disappear from the metadata table displayed in the ELN.
    
-### [omero_LinkageToolbox:](omero_LinkageToolbox.md)
+### [omero_LinkageToolbox:](/doc/omero_LinkageToolbox.md)
 With this toolbox, users must either paste the URL of the experiment in the ELN into OMERO or drag and drop it there. A new entry with the image metadata is then created in the ELN and a link to the experiment in the ELN is created in OMERO. To update the OMERO image data linked to the ELN experiment, simply run the toolbox again and remove the previous result.
 
 Different levels of access rights to the OMERO and/or ELN server are required to install the toolboxes, so be sure to review the prerequisites beforehand.
