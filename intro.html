@@ -1,0 +1,199 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About The Project &mdash; Example 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="omero_JSONQueryToolbox: Integrating OMERO data" href="omero_JSONQueryToolbox.html" />
+    <link rel="prev" title="Welcome to the OMERO-ELN DataBridgeTools documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Example
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">About The Project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#omero-jsonquerytoolbox"><span class="xref myst">omero_JSONQueryToolbox:</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#omero-linkagetoolbox"><span class="xref myst">omero_LinkageToolbox:</span></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#roadmap-future-developments">Roadmap future developments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#versioning">Versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#contributing">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#license">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#contact">Contact</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#acknowledgments">Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="omero_JSONQueryToolbox.html">omero_JSONQueryToolbox: Integrating OMERO data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="omero_LinkageToolbox.html">omero_LinkageToolbox: Linking with OMERO via drag and drop</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Example</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">About The Project</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/intro.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p><a id="readme-top"></a></p>
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
+<!-- ABOUT THE PROJECT -->
+<section id="about-the-project">
+<h1>About The Project<a class="headerlink" href="#about-the-project" title="Link to this heading"></a></h1>
+<p>The omero-eln-dataBridgeTools  are designed to link bioimage metadata stored in OMERO with the relevant experimental metadata found in an Electronic Lab Notebook (ELN).
+Utilizing these tools allows you to save time on metadata searches, access your image metadata directly within the ELN, and facilitates easier retrieval of project metadata for your students or supervisor.</p>
+<p>We developed two different toolboxes to link and display metadata:</p>
+<section id="omero-jsonquerytoolbox">
+<h2><a class="reference internal" href="omero_JSONQueryToolbox.html"><span class="std std-doc">omero_JSONQueryToolbox:</span></a><a class="headerlink" href="#omero-jsonquerytoolbox" title="Link to this heading"></a></h2>
+<p>This toolbox requires the user to insert the OMERO image or dataset ID into the ELN. The OMERO image metadata is then requested and displayed in the ELN.
+This data is updated each time the ELN entry is edited. By adding or deleting OMERO image IDs these are appended to or disappear from the metadata table displayed in the ELN.</p>
+</section>
+<section id="omero-linkagetoolbox">
+<h2><a class="reference internal" href="omero_LinkageToolbox.html"><span class="std std-doc">omero_LinkageToolbox:</span></a><a class="headerlink" href="#omero-linkagetoolbox" title="Link to this heading"></a></h2>
+<p>With this toolbox, users must either paste the URL of the experiment in the ELN into OMERO or drag and drop it there. A new entry with the image metadata is then created in the ELN and a link to the experiment in the ELN is created in OMERO. To update the OMERO image data linked to the ELN experiment, simply run the toolbox again and remove the previous result.</p>
+<p>Different levels of access rights to the OMERO and/or ELN server are required to install the toolboxes, so be sure to review the prerequisites beforehand.</p>
+<p>Both toolboxes do not contradict each other, it is possible to install and use both of them.</p>
+<!-- ROADMAP -->
+</section>
+</section>
+<section id="roadmap-future-developments">
+<h1>Roadmap future developments<a class="headerlink" href="#roadmap-future-developments" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p>[ ] elabFTW *.eln output for omero_LinkageToolbox</p></li>
+<li><p>[ ] Synchronizing function for omero_LinkageToolbox: Automatically update or synchronize content for existing links</p></li>
+</ul>
+<p>See the <a class="reference external" href="https://github.com/I3D-bio/omero-eln-dataBridgeTools/issues">open issues</a> for a full list of proposed features (and known issues). TODO: set templates</p>
+<!-- VERSIONING -->
+</section>
+<section id="versioning">
+<h1>Versioning<a class="headerlink" href="#versioning" title="Link to this heading"></a></h1>
+<p>We use <a class="reference external" href="http://semver.org/">SemVer</a> for versioning. For the versions available, see the <a class="reference external" href="https://github.com/I3D-bio/omero-eln-dataBridgeTools/tags">tags on this repository</a>.</p>
+<!-- CONTRIBUTING -->
+</section>
+<section id="contributing">
+<h1>Contributing<a class="headerlink" href="#contributing" title="Link to this heading"></a></h1>
+<p>Please read <a class="reference internal" href="CONTRIBUTING.html"><span class="std std-doc">CONTRIBUTING.md</span></a></p>
+<!-- LICENSE -->
+</section>
+<section id="license">
+<h1>License<a class="headerlink" href="#license" title="Link to this heading"></a></h1>
+<p>Distributed under the AGPL-3.0 License. See <code class="docutils literal notranslate"><span class="pre">LICENSE.txt</span></code> for more information.</p>
+<!-- CONTACT -->
+</section>
+<section id="contact">
+<h1>Contact<a class="headerlink" href="#contact" title="Link to this heading"></a></h1>
+<p>Project Link: <a class="reference external" href="https://gerbi-gmb.de/i3dbio/">I3D:bio - Information Infrastructure for BioImage Data</a></p>
+<!-- ACKNOWLEDGMENTS -->
+</section>
+<section id="acknowledgments">
+<h1>Acknowledgments<a class="headerlink" href="#acknowledgments" title="Link to this heading"></a></h1>
+<p>The this project is part of the I3D:bio project, funded by the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation). Grant Number: 462231789</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to the OMERO-ELN DataBridgeTools documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="omero_JSONQueryToolbox.html" class="btn btn-neutral float-right" title="omero_JSONQueryToolbox: Integrating OMERO data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright workshop participant.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
